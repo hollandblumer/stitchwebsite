@@ -1,4 +1,4 @@
-// App.jsx
+// src/App.jsx
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
@@ -9,11 +9,11 @@ import Preloader from "./components/Preloader";
 import LoadingText from "./assets/images/loading-stitch-font.png";
 import PasswordGate from "./components/PasswordGate";
 
-function App() {
+export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const MIN_DURATION = 3000; // 3 seconds
+    const MIN_DURATION = 3000;
     const start = Date.now();
 
     const finish = () => {
@@ -23,15 +23,12 @@ function App() {
       document.body.style.overflow = "";
     };
 
-    // preload the loading text asset
     const img = new Image();
     img.onload = finish;
     img.onerror = finish;
     img.src = LoadingText;
 
-    // ensure scroll is locked while loading
     document.body.style.overflow = "hidden";
-
     return () => {
       document.body.style.overflow = "";
     };
@@ -63,11 +60,8 @@ function App() {
           bottomOffset={80}
         />
 
-        {/* Optional */}
         {/* <DiagonalStitchesGrow /> */}
       </div>
     </PasswordGate>
   );
 }
-
-export default App;
