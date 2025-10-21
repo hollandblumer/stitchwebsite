@@ -7,6 +7,7 @@ import DiagonalXScroll from "./components/DiagonalXScroll";
 import RotatingImages from "./components/RotatingImages";
 import Preloader from "./components/Preloader";
 import LoadingText from "./assets/images/loading-stitch-font.png";
+import PasswordGate from "./components/PasswordGate";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -37,33 +38,35 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <Preloader
-        isLoading={loading}
-        svgTextSrc={LoadingText}
-        svgTextAlt="Your Brand"
-        downFromTopVh={50}
-        showBackdrop={true}
-      />
+    <PasswordGate>
+      <div className="app">
+        <Preloader
+          isLoading={loading}
+          svgTextSrc={LoadingText}
+          svgTextAlt="Your Brand"
+          downFromTopVh={50}
+          showBackdrop={true}
+        />
 
-      <Header />
+        <Header />
 
-      <main className="main-content">
-        <RotatingImages size={260} speed={60} />
-      </main>
+        <main className="main-content">
+          <RotatingImages size={260} speed={60} />
+        </main>
 
-      <DiagonalXScroll
-        color="#e42014"
-        stitch={14}
-        thick={3}
-        gapX={20}
-        margin={28}
-        bottomOffset={80}
-      />
+        <DiagonalXScroll
+          color="#e42014"
+          stitch={14}
+          thick={3}
+          gapX={20}
+          margin={28}
+          bottomOffset={80}
+        />
 
-      {/* Optional */}
-      {/* <DiagonalStitchesGrow /> */}
-    </div>
+        {/* Optional */}
+        {/* <DiagonalStitchesGrow /> */}
+      </div>
+    </PasswordGate>
   );
 }
 
