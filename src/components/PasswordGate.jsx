@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import logoPath from "../assets/images/stitch-logo.svg";
-import LoadingScreen from "../components/Preloader";
+import Preloader from "../components/Preloader";
+import LoadingText from "../assets/images/loading-stitch-font.png";
 
 const ACCENT = "#e42014",
   PINK = "#f7d6d7",
@@ -45,7 +46,16 @@ export default function PasswordGate({ children, logo = logoPath }) {
     }
   };
 
-  if (stage === "loading") return <LoadingScreen />;
+  if (stage === "loading")
+    return (
+      <Preloader
+        isLoading={true}
+        svgTextSrc={LoadingText}
+        svgTextAlt="Whats The Stitch"
+        downFromTopVh={50}
+        showBackdrop={true}
+      />
+    );
   if (stage === "content") return children;
 
   // stage === "gate"
