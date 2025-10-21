@@ -1,7 +1,9 @@
-import { defineConfig } from "vite";
+// vite.config.js
 import react from "@vitejs/plugin-react";
 
-export default defineConfig({
+const config = {
   plugins: [react()],
-  base: "/stitchwebsite/", // 👈 must match repo name exactly
-});
+  base: "/stitchwebsite/", // must match the repo name
+};
+
+export default config;
