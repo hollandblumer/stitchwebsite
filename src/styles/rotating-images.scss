@@ -1,0 +1,49 @@
+.rotating-images {
+  position: fixed;
+  right: 80px; /* how far from right edge */
+  top: 42%; /* anchor around middle-right area */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* right alignment of children */
+  gap: 80px; /* space between top and bottom ticket */
+  z-index: 20;
+}
+
+.rotating {
+  display: block;
+  transform-origin: center center;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* top “Protection” ticket */
+.rotating-left {
+  transform: rotate(-15deg) translateX(-40px); /* shifted left */
+  animation-name: swayLeft;
+}
+
+/* bottom “15% Off” ticket */
+.rotating-right {
+  transform: rotate(10deg);
+  animation-name: swayRight;
+}
+
+@keyframes swayLeft {
+  0% {
+    transform: rotate(-15deg) translateX(-40px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(-40px);
+  }
+}
+
+@keyframes swayRight {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}

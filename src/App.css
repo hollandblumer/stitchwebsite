@@ -1,0 +1,8 @@
+.app {
+  background-color: #ffe5e8;
+  background: #fefaee;
+  background: #fefaee;
+  width: 100vw;
+  height: 200vh;
+  cursor: url("./assets/images/cherries.svg") 16 16, auto;
+}

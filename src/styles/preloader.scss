@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Crafty+Girls");
+
+/* Full-screen, viewport-fixed overlay so parents can’t affect placement */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: auto;
+
+  /* nice fade when leaving */
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.preloader--out {
+  opacity: 0;
+}
+
+.with-backdrop {
+  background: #ffcfd0;
+}
+
+/* Center the loader horizontally; vertical set via inline top (vh) */
+.loader {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center at (left:50%, top:vh) */
+  width: 400px; /* matches strand max width */
+  max-width: 92vw;
+  text-align: center;
+}
+
+/* Optional “Loading” title image above the strand */
+.svg-text {
+  display: block;
+  margin: 0 auto 16px auto;
+  width: 220px;
+  height: auto;
+}
+
+/* ===== YOUR ORIGINAL RHYTHM STARTS HERE (unchanged logic) ===== */
+
+/* Keep the original background positioning so the rhythm feels identical */
+.rollout {
+  background: url(https://assets.codepen.io/9259849/red-strand.svg) no-repeat 0
+    120%;
+  background-size: 400px 24px;
+  height: 40px;
+
+  /* center the 400px lane exactly like your: left:50%; margin-left:-200px */
+  position: relative;
+  left: 50%;
+  margin-left: -200px;
+
+  width: 0; /* animated */
+  animation: unrolling-strand 6s cubic-bezier(0.57, 0.27, 0.46, 0.79) infinite
+    forwards;
+}
+
+/* Yarn at the right edge of the rollout (same offsets) */
+.yarn {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 40px;
+  animation: rolling-yarn 6s cubic-bezier(0.57, 0.27, 0.46, 0.79) infinite
+    forwards;
+}
+
+/* If you want a text node instead of image title */
+.loading-text {
+  opacity: 0;
+  text-align: center;
+  font-family: "Crafty Girls", cursive;
+  font-size: 30px;
+}
+
+/* === Keyframes identical to your percentages/easing === */
+@keyframes unrolling-strand {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  60% {
+    width: 400px;
+    opacity: 1;
+  }
+  70% {
+    width: 400px;
+    opacity: 0;
+  }
+  100% {
+    width: 400px;
+    opacity: 0;
+  }
+}
+
+@keyframes loading-fadein {
+  65% {
+    opacity: 0;
+  }
+  82.5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rolling-yarn {
+  60% {
+    transform: rotate(1146deg);
+  }
+  100% {
+    transform: rotate(1146deg);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rollout,
+  .yarn {
+    animation: none !important;
+  }
+}

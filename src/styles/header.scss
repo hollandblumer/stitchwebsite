@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Wintter";
+  src: url("../assets/fonts/Wintter.ttf") format("ttf"),
+    url("../assets/fonts/Wintter.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.header {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  }
+}
+
+/* Left: menu icon */
+.header__left {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Center: logo area (absolute centering) */
+.header__center {
+  position: absolute; // center independent of side widths
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+
+  .logo-img {
+    width: 380px; // larger logo
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+
+  .byline {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-top: 0.4rem;
+    color: #940203;
+  }
+}
+
+/* Right: nav + bag */
+.header__right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  margin-left: auto; // push fully to right edge
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+
+  a {
+    text-decoration: none;
+    color: #940203;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #d94f70;
+    }
+  }
+}
+
+.icon {
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  margin-right: auto;
+}
+
+.bag-icon {
+  margin-left: 1.5rem;
+}
+
+.bag-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center; /* horizontally center contents */
+  align-items: center; /* vertically center contents */
+  width: 46px; /* ensures consistent space */
+  height: 46px;
+}
+
+.bag-count {
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+  color: #940204; /* your stitch red */
+  pointer-events: none;
+  margin-left: 24px;
+  margin-top: 10px;
+  padding: 1px 1px;
+}
